@@ -12,3 +12,4 @@ RUN cd /root && wget https://github.com/mozilla/geckodriver/releases/download/v0
 RUN cd /root && tar -zxvf geckodriver-v0.24.0-linux64.tar.gz
 RUN cp /root/geckodriver /bin/
 RUN rm -rfv /root/*
+RUN chmod 755 /bin/chromedriver
