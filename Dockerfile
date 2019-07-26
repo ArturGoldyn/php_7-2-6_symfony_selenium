@@ -15,3 +15,11 @@ RUN apt-get install -y fonts-liberation libappindicator3-1 lsb-release libxss1 x
 RUN cd /root && dpkg -i google-chrome-stable_current_amd64.deb
 RUN rm -rfv /root/*
 RUN chmod 755 /bin/chromedriver
+RUN echo 'en_GB.UTF-8 UTF-8' >> /etc/locale.gen
+RUN apt-get install -y locales
+RUN dpkg-reconfigure --frontend=noninteractive locales
+RUN locale-gen en_GB.UTF-8
+RUN update-locale LANG=en_GB.utf8
+RUN echo 'export LC_ALL=en_GB.UTF-8' >> /etc/profile
+RUN echo 'export LANG=en_GB.UTF-8' >> /etc/profile
+RUN echo 'export LANGUAGE=en_GB.UTF-8' >> /etc/profile
